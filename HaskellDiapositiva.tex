@@ -1,0 +1,716 @@
+\documentclass[a4paper,10pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%Paquetes
+\usepackage[spanish]{babel}  
+\usepackage{indentfirst} %%%%%%%%%%%%%%%%Crear un indent al principio
+\usepackage[latin1]{inputenc}%%%%%%%%%%%%ñ y acentos
+\usepackage{tcolorbox}
+\usepackage{color}
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+
+\usepackage{fourier}
+
+
+
+\usepackage[paperwidth=12cm,paperheight=15cm, hmargin={1cm,1cm}, top=1.5cm, bottom=1cm]{geometry}
+\usepackage{latexsym,amsmath,amssymb,amsfonts}
+
+\newcommand{\com}[1]{\textbf{\color{blue}{#1}}}
+
+\pagestyle{empty}
+
+%\newboxedtheorem[boxcolor=orange, background=blue!5, titlebackground=blue!20,
+%titleboxcolor = black]{ejer}{}{anything}
+\newenvironment{capitulo}{\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]}{\end{tcolorbox}\bigskip}
+\newenvironment{ejer}{\begin{tcolorbox}[colback=blue!5,colframe=orange]}{\end{tcolorbox}}
+\setlength{\parskip}{2mm}
+
+\author{jltabara@gmail.com}
+
+\title{Introducción a Mathematica}
+
+\date{}
+
+\begin{document}
+
+%\begin{capitulo}
+
+%\vspace{-1cm}
+%\maketitle
+
+%\end{capitulo}
+
+%\vspace{-0.5 cm}
+
+%\thispagestyle{empty}
+
+%\tableofcontents
+
+%\newpage
+
+
+\section*{Las operaciones aritméticas}
+
+
+\begin{ejer}
+
+Realiza las siguientes operaciones:
+
+\begin{itemize}
+
+\item $2+5$
+
+\item  $49 \times 100$
+
+\item $ 1892-1472$
+
+\item $a)\,5 \, / \, 2 \qquad b)\, 5432\, / \, 277 \qquad c)\, 1.1 + 2.2$
+
+\item Multiplicación con un número negativo. Paréntesis.
+
+\item $a)\,50 \times 100-4999\qquad b)\,(50 \times 100)-4999$
+
+
+\item $50 \times (100-4999)$
+
+\item $a)\, 2^5 \qquad  b) 32^{45}$
+
+\item $a)\,12345678 \times 87654321\quad b)\, 12345678 \times 87654321.0$
+
+\item Transforma $32^{45}$ en número real con \textbf{::Double}.
+
+\item $a)\,2^{0.5} \qquad b) \,32.1^{32.6}$. $\qquad$(Operador \textbf{**}).
+
+\item Calcula el cociente y el resto de $2347\, / \, 45$ con los operadores \textbf{div} y \textbf{mod}. Comprueba la división.
+
+\item Realiza operaciones con la forma prefija.
+
+\end{itemize}
+
+
+\end{ejer}
+
+\newpage
+
+\section*{Operaciones lógicas y comparaciones}
+
+\begin{ejer}
+
+Realiza las siguientes operaciones
+
+\begin{itemize}
+
+\item $\mathrm{True} \wedge  \mathrm{False}.\qquad $  (Operador \textbf{\&\&})
+
+\item $\mathrm{True} \wedge  \mathrm{True}$. 
+
+\item $\mathrm{False} \vee  \mathrm{False}\qquad $ (Operador \textbf{||})
+
+\item $\neg \mathrm{False}.\qquad $ (Operador \textbf{not})
+
+\item $\neg (\mathrm{True} \wedge \mathrm{True})$
+
+\item $5 = 5\qquad $ (Operador \textbf{==})
+
+\item $5 = 12$
+
+\item $5 \neq 5\qquad $ (Operador \textbf{/=})
+
+\item  \verb|"hola"  = "hola"|
+
+\item $ 3 < 8\qquad $ (Operador \textbf{<})
+
+\item $5 \leq 5 \qquad$ (Operador \textbf{<=})
+
+\item $ 6 < \verb|"hola"| \qquad $  (Error)
+
+\item $34.8 \geq 2.3\cdot 10^2\qquad $ (Operador \textbf{>=})
+
+\end{itemize}
+
+
+
+\end{ejer}
+
+
+\newpage
+
+\section*{Funciones predefinidas}
+
+\begin{ejer}
+
+\begin{itemize}
+
+\item Aplica la función \textbf{succ} a números enteros, positivos y negativos, a números reales y a caracteres.
+
+\item Aplica la función \textbf{pred} a números enteros, positivos y negativos, a números reales y a caracteres.
+
+
+\item Aplica las funciones \textbf{min} y \textbf{max} a parejas de números.
+
+\item Aplica las funciones \textbf{min} y \textbf{max} a una terna de números.
+
+\item Calcula \verb| succ 9 + max 5 4 +1|
+
+\item Componer varias funciones predefinidas. Uso de paréntesis.
+
+\item Calcula \verb| succ 9 * 10|
+
+\item Opera con las siguientes funciones: \textbf{pi}, \textbf{sqrt}, \textbf{cos}, \textbf{cosh}, \textbf{asin}, \textbf{gcd}, \textbf{exp}, \textbf{log}.
+
+\item Opera con las siguientes funciones: \textbf{round}, \textbf{lcm} y \textbf{gcd}.
+
+\end{itemize}
+
+\end{ejer}
+
+\newpage
+
+\section*{Definición de funciones}
+
+
+\begin{ejer}
+
+\begin{itemize}
+
+\item Construye la función $f(x)= 2x$ en un archivo y cárgala en el intérprete. (Comando \textbf{:l}).
+
+\item Construye la función $g(x,y)= x^2 + y^2$ y recarga el archivo de texto. (Comando \textbf{:r}).
+
+\item Construye la función $h(x,y) = 6x +x^2+y^2$ utilizando las funciones anteriores.
+
+\item Construye la función:
+\[
+f(x) =\begin{cases}
+ x & \mathrm{ si } \,\,x > 100\\
+ x^2 & \mathrm{ si }\,\, x \leq 100
+ \end{cases}
+ \]
+ utilizando la construcción \textbf{if \dots then \dots else\dots}.
+ 
+ \item Crea una constante llamada \guillemotleft respuesta\guillemotright\ (en el archivo de texto) y asígnale el número 42.
+ 
+ \item Define otra constante (en el intérprete) utilizando el comando \textbf{let}.
+ 
+ \item Define una constante local utilizando la construcción \textbf{let \dots in \dots}
+
+\end{itemize}
+
+\end{ejer}
+
+\newpage
+
+\section*{Listas 1}
+
+\begin{ejer}
+
+\begin{itemize}
+
+\item Construye una lista numérica y asígnale un nombre.
+
+\item Una lista de caracteres y otra de booleanos.
+
+\item Las cadenas y las listas de caracteres son lo mismo.
+
+\item Intenta crear una lista con números y caracteres mezclados. 
+
+\item Concatena dos listas númericas. (Operador \textbf{++}). 
+
+\item Concatena dos cadenas.
+
+\item Añade un elemento al principio de una lista. Añade dos elementos. (Operador \textbf{:}).
+
+\item Añade un elemento al final de la lista.
+
+\item Accede mediante índices a los elementos de una lista. (Operador \textbf{!!}).
+
+\item Crea la lista \verb|[[2,3,4],[5,7],[3,7,8]]| y accede a sus elementos.
+
+\item Haz actuar la función \textbf{succ} sobre cada elemento de la lista. (Comando \textbf{map}).
+
+\end{itemize}
+
+\end{ejer}
+
+\newpage
+
+\section*{Listas 2}
+
+
+
+\begin{ejer}
+
+Construye la lista numérica \verb|[4,8,15,16,23,42]|  y la cadena \verb|MazingerZ|.
+
+\begin{itemize}
+
+\item Aplica la función \textbf{head} a las listas.
+
+\item Aplica la función \textbf{tail} a las listas.
+
+\item Cambia el primer número de la lista por un 90.
+
+\item Aplica la función \textbf{last} a las listas.
+
+\item Aplica la función \textbf{init} a las listas.
+
+\item Aplica la función \textbf{length} a las listas.
+
+\item Aplica la función \textbf{reverse} a las listas.
+
+\item Aplica la función \textbf{take} a las listas con distintos valores numéricos.
+
+\item Aplica la función \textbf{drop} a las listas con distintos valores numéricos.
+
+\item Aplica las funciones \textbf{maximum}, \textbf{minimum}, \textbf{sum} y \textbf{product} a la lista numérica.
+
+\item Comprueba si distintos números o caracteres pertenecen a las listas. (Operador \textbf{elem}).
+
+\end{itemize}
+
+\end{ejer}
+
+\newpage
+
+\section*{Rangos (Sucesiones aritméticas)}
+
+
+
+\begin{ejer}
+
+
+\begin{itemize}
+
+\item La lista de los números pares empezando en 2 y terminando en 100.
+
+\item La lista de los 100 primeros números. Súmalos.
+
+\item La factorial de 25.
+
+\item La lista de los números del 100 al 1.
+
+\item La lista \verb|[6,9..100]|.
+
+\item Listas con caracteres.
+
+\item La lista infinita de todos los números pares. (\textbf{Control + C} para detener).
+
+\item Repite eternamente la lista \verb|[3,7,9]| (Comando \textbf{cycle}).
+
+\item Extrae los 10 primeros números de la lista anterior.
+
+\item Repite infinitamente el número 6. (Comando \textbf{repeat}).
+
+\item Repite 7 veces el número 10. (Comando \textbf{replicate}).
+
+\end{itemize}
+
+\end{ejer}
+
+\newpage
+
+\section*{Listas intensionales}
+
+\enlargethispage{2 cm }
+
+\begin{ejer}
+
+\begin{itemize}
+
+\item Construye la lista (infinita) $\{2x | x \in \mathbb{N}\}$. Genera únicamente 20 elementos de esta lista utilizando \textbf{take}. Lo mismo pero  variando el \guillemotleft generador\guillemotright.
+
+\item Construye la lista de los primeros 10 números cuadrados. Y la lista de las 10  primeras potencias de 2.
+
+\item Construye la lista de los números del 50 al 100 pero que además el resto de la división entre 7 sea 3.  La lista anterior pero que además los números sean pares.
+
+\item Genera todos las parejas de números del 1 al 3 utilizando dos generadores. Haz lo mismo pero evitando repetir parejas.
+
+\item Construye una lista con todas las vocales de la frase ``en un lugar de la marcha''.
+
+\item $\star$ Construye una lista con todos los divisores del número 60. Lo mismo pero con 59.
+
+\item $\star$ Construye una función que calcule todos los divisores de un número entero.
+
+\item $\star$ Construye una función para identificar números primos.
+
+\item $\star$ Construye una función para identificar números perfectos.
+
+
+
+\end{itemize}
+
+
+\end{ejer}
+
+
+
+
+\newpage
+
+\section*{Tuplas}
+
+\begin{ejer}
+
+\begin{itemize}
+
+\item Construye una tupla con elementos no homogeneos.
+
+\item Utiliza las funciones \textbf{fst} y \textbf{snd} sobre la dupla (``im'', ``presionante'').
+
+\item Utiliza la función \textbf{zip} sobre las listas:
+\begin{center}
+[1, 2, 3, 4] y [``Uno'', ``Dos'', ``Tres'', ``Cuatro'']
+\end{center}
+
+\item Añada algún elemento más a alguna de las listas anteriores y ejecuta de nuevo \textbf{zip}.
+
+\item Utiliza \textbf{zip} sobre  las listas:
+\begin{center}
+[1..] y [``Uno'', ``Dos'', ``Tres'', ``Cuatro'']
+\end{center}
+
+\item Encontrar todas las ternas pitagóricas cuyos números sean menores que 20.
+
+\item Todas las ternas pitagóricas pero que además el perímetro sea 24.
+
+\item Comprobar el teorema de Fermat para algún exponente.
+
+
+\end{itemize}
+
+\end{ejer}
+
+
+
+
+\newpage
+
+\section*{Tipos de datos (\guillemotleft Type\guillemotright)}
+
+\begin{ejer}
+
+\begin{itemize}
+
+\item Calcula el tipo (comando \textbf{:t}) de los siguientes elementos:
+\[
+a) \,\mathrm{'n'} \qquad b)\,\mathrm{True} \qquad c) \,\mathrm{''Hola''} \qquad d)\, 4 ==5
+\]
+
+\item Calcula el tipo del número 27.
+
+\item Convierte 27 en tipo \textbf{Int}, \textbf{Integer}, \textbf{Float} y \textbf{Double}. Opera con dicho número y calcula su tipo.
+
+\item Convierte la lista \verb|[4,5,6,7]| a tipo \textbf{Double} y pregunta por su tipo.
+
+\item Pregunta por el tipo de la función \textbf{doble}.
+
+\item Declara la función doble de tipo \textbf{Int -$>$ Int} y vuelve a calcular su tipo.
+
+\item Declara la función doble de tipo \textbf{Double -$>$ Double} y vuelve a calcular su tipo.
+
+\item Calcula el tipo de la función \textbf{media3}.
+
+\item Calcula el tipo de la función \textbf{quitaVocales}.
+
+\item Calcula el tipo de la función \textbf{head} e \textbf{init}.
+
+\end{itemize}
+
+\end{ejer}
+
+
+\newpage
+
+\section*{Clases de tipo (\guillemotleft Typeclass\guillemotright)}
+
+\enlargethispage{1cm}
+
+\begin{ejer}
+
+\begin{itemize}
+
+\item Calcula el tipo de la función \textbf{==}.  (Clase \textbf{Eq}).
+
+\item Calcula el tipo de la función \textbf{$>$}. (Clase \textbf{Ord}).
+
+\item Calcula el tipo de la función \textbf{succ}. (Clase \textbf{Enum}).
+
+\item Calcula el tipo de la función \textbf{+}. (Clase \textbf{Num})
+
+
+
+\end{itemize}
+
+\begin{center}
+\includegraphics[scale=0.4]{clases.png} 
+\end{center}
+
+\end{ejer}
+
+
+\section*{Ajuste de patrones (\guillemotleft pattern matching\guillemotright)}
+
+
+
+\begin{ejer}
+
+\begin{itemize}
+
+\item Construye la función $f: \mathbb{N} \rightarrow \mathbb{N}$ dada por:
+\[
+f(x)=\begin{cases}
+1000 & \mathrm{ si } \,\,x = 7\\
+0 & \mathrm{ si } \,\, x \neq 7
+\end{cases}
+\]
+
+\item Construye una función que asocie a cada entero entre 1 y 4 su nombre en castellano.
+
+\item Elimina la excepción de la función anterior añadiendo  un caso general.
+
+\item Pon el caso general en primer lugar en la función anterior.
+
+\item Define de forma recursiva la factorial.
+
+\item Construye la función que suma dos vectores bidimensionales. Otra con el producto escalar.
+
+\item Construye la función que extraiga la primera componente de una tripla. (Uso del comodín).
+
+\item Implementa con patrones la funciones \textbf{length}, \textbf{sum}, \textbf{product} y \textbf{head}.
+
+
+\end{itemize}
+
+\end{ejer}
+
+\newpage
+
+\section*{Guardas}
+
+
+
+\begin{ejer}
+
+\begin{itemize}
+
+\item Construye la función $f$ dada por:
+\[
+f(x)=\begin{cases}
+x  &\text{ si } \leq 0\\
+x^2  & \text{ si } x > 0
+\end{cases}
+\]
+
+\item Construye la función $f$ dada por:
+\[
+f(x)=\begin{cases}
+x  &\text{ si } x \leq 0\\
+5  & \text{ si } 0 <x <5\\
+x^2 &\text{ si } x \geq 5
+\end{cases}
+\]
+
+\item Construye la función $f$ dada por:
+\[
+f(x)=\begin{cases}
+\verb|"joven"|  &\text{ si } 0 \leq x \leq 18\\
+\verb|"adulto"|   & \text{ si } 18 <x <65\\
+\verb|"viejo"| &\text{ si } x \geq 65
+\end{cases}
+\]
+
+\item Construye la función \textbf{abs} con guardas. Lo mismo con la función \textbf{signum}.
+
+\end{itemize}
+
+\end{ejer}
+\newpage
+
+\section*{Definiciones locales (\guillemotleft where\guillemotright y \guillemotleft let\guillemotright)}
+
+
+
+\begin{ejer}
+
+\begin{itemize}
+
+\item Analiza la orden \textbf{where} en la función \verb|preguntaIMC|.
+
+\item Define una constante global y utilízala en la función. La constante es accesible desde cualquier lugar.
+
+\item Define la constante  como local y comprueba que no es accesible fuera de la función.
+
+\item Construye una función que devuelva una lista con todos los números pares hasta el argumento, utilizando una clausura \textbf{where}. La función creada no es accesible globalmente.
+
+\item Define una constante global utilizando \textbf{let}.
+
+\item Define una constante local utilizando \textbf{let \dots in}.
+
+\item Calcula el área total de un cilindro utilizando clausuras \textbf{let \dots in}.
+
+
+
+\end{itemize}
+
+\end{ejer}
+
+\newpage
+
+\section*{Funciones recursivas}
+
+
+
+
+\begin{ejer}
+
+Crea recursivamente las siguientes funciones
+
+\begin{itemize}
+
+\item La función factorial.
+
+\item La función \textbf{sum}, \textbf{product} y \textbf{length}.
+
+\item La función \textbf{maximum}.
+
+\item La función \textbf{replicate}.
+
+\item La función \textbf{reverse}.
+
+\item La función \textbf{fibonacci}.
+
+\item La función \textbf{zip}.
+
+
+
+
+\end{itemize}
+
+\end{ejer}
+
+\newpage
+
+
+
+\section*{Funciones \guillemotleft currificadas\guillemotright. Secciones}
+
+
+
+
+\begin{ejer}
+
+\begin{itemize}
+
+
+\item Construye la función de dos argumentos \textbf{suma}. Analiza su tipo. \guillemotleft Currifica\guillemotright\  dicha función. Analiza el nuevo tipo. Utiliza dicha función con \textbf{map}.
+
+\item Construye una función que multiplique tres argumentos y \guillemotleft currificala\guillemotright. Analiza los tipos de las funciones currificadas.
+
+\item \guillemotleft Currifica\guillemotright\  el operador multiplicación. El resultado de esta operación se llama \textbf{sección}.
+
+\item Crea secciones con otro operador. Utiliza también la notación prefija.
+
+\item Crea secciones con operadores de comparación.
+
+\item Crea una función que devuelve \textit{True} en el caso en que el caracter sea una letra mayúscula.
+
+\end{itemize}
+
+\end{ejer}
+
+\newpage
+
+\section*{Funciones de orden superior}
+
+
+
+
+\begin{ejer}
+
+\begin{itemize}
+
+\item La función \textbf{dosVeces} como función de orden superior. Análisis de su tipo. Definición con la composición de funciones.
+
+\item Analiza el tipo de la función \textbf{map}. Construye la función \textbf{map} usando un ajuste de patrones. Comprueba el tipo de la nueva función.
+
+\item Construye la función \textbf{map} utilizando listas intensivas.
+
+\item Analiza el tipo y el uso de la función \textbf{zipWith}. Construye una función que simule a dicha función.
+
+\item Analiza el tipo y el uso de la función \textbf{filter}. Construye una función que simule a dicha función usando patrones.
+
+\item Construye la función \textbf{filter} con listas intensivas.
+
+
+\end{itemize}
+
+\end{ejer}
+
+
+\newpage
+
+\section*{Plegados}
+
+\begin{ejer}
+
+\begin{itemize}
+
+
+\item Construye las funciones \textbf{sum}, \textbf{product} y \textbf{and} utilizando \textbf{foldl1} y \textbf{foldr1}.
+
+
+\item Simula la función \textbf{maximum} con pliegues.
+
+\item Convierte una lista de cifras en un número decimal utilizando \textbf{foldl1}.
+
+
+\item Define recursivamente las funciones \textbf{sum}, \textbf{product} y \textbf{and}.
+
+
+
+\item Define las funciones anteriores empleando \textbf{foldr}.
+
+\item Define las funciones anteriores empleando \textbf{flodl}.
+
+
+
+\end{itemize}
+
+
+\end{ejer}
+
+
+
+
+\newpage
+
+
+Definir funciones que extraen elementos de una tupla. Utilizando el guion bajo.
+
+crea tipos definidos por el usuario.
+
+crear lista de booleanos
+
+funcion length creada por recursionkjhgfs 
+
+
+extraer una sublista de una lista dada con drop y take
+
+Escribir multilinea con :{ y :}
+
+definicion valor absoluto con if then else
+
+la funcion signo con ifs anidados
+
+definir lo mismo con guardas. Uso de otherwise
+
+Definicion de not por patrones
+
+Uso del comodin para patrones
+
+
+
+\end{document}
+
+
+
